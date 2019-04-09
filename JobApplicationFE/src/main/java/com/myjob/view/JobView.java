@@ -40,9 +40,9 @@ public class JobView implements Serializable {
 		
 		jobs = Utility.getResponse(url).getBody();
 
-		//ObjectMapper mapper = new ObjectMapper();
+		/*ObjectMapper mapper = new ObjectMapper();
 		
-		//ResponseEntity<List<JobModel>> jobs = Utility.getResponse(url);
+		ResponseEntity<List<JobModel>> jobs = Utility.getResponse(url);
 
 		/*jobs = mapper.convertValue(responseForApplications.getBody(),
 				new TypeReference<List<JobModel>>() {
