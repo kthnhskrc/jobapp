@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+
+	<title>Job Application Page</title>
+
+</h:head>
+
+
+<h:body>
+
+	<h:form>
+		<p:outputLabel for="filter" value="Filter: " />
+		<p:selectOneMenu id="filter" value="#{jobView.selectedLevel}">
+			<f:selectItem itemLabel="All Jobs" itemValue="all" />
+			<f:selectItems value="#{jobView.cbLevels}" />
+		</p:selectOneMenu>
+		<p:commandButton value="Filter" action="#{jobView.myFunc}" update="myPanel"/>
+
+		<p:accordionPanel id="myPanel" value="#{jobView.jobs}" var="jv">
+			<p:tab title="#{jv.id} - #{jv.title}">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Description:" style="font-weight: bold" />
+					<h:outputText value="#{jv.description}" />
+					<p:commandButton id="applyJob" value="Başvur" action="#{jobView.applyJob(jv.id,jv.title)}">
+					</p:commandButton>
+
+				</h:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+
+	</h:form>
+
+</h:body>
+</html>
