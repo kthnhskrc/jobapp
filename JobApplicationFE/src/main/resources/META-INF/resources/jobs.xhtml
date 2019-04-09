@@ -21,7 +21,7 @@
 			<f:selectItem itemLabel="All Jobs" itemValue="all" />
 			<f:selectItems value="#{jobView.cbLevels}" />
 		</p:selectOneMenu>
-		<p:commandButton value="Filter" action="#{jobView.myFunc}" update="myPanel"/>
+		<p:commandButton value="Filter" action="#{jobView.filterJobs}" update="myPanel"/>
 
 		<p:accordionPanel id="myPanel" value="#{jobView.jobs}" var="jv">
 			<p:tab title="#{jv.id} - #{jv.title}">

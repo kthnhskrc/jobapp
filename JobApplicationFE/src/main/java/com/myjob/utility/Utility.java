@@ -11,12 +11,12 @@ import com.myjob.model.JobModel;
 
 public class Utility {
 
-	public static ResponseEntity<List<JobModel>> getResponse(String url) {
+	public static <T> ResponseEntity<List<T>> getResponse(String url) {
 
 		RestTemplate restTemplate = new RestTemplate();
 		
-		ResponseEntity<List<JobModel>> rateResponse = restTemplate.exchange(url, HttpMethod.GET, null,
-				new ParameterizedTypeReference<List<JobModel>>() {
+		ResponseEntity<List<T>> rateResponse = restTemplate.exchange(url, HttpMethod.GET, null,
+				new ParameterizedTypeReference<List<T>>() {
 				});
 
 		return rateResponse;

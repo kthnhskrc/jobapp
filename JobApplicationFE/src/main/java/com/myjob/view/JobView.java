@@ -1,7 +1,6 @@
 package com.myjob.view;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,27 +36,21 @@ public class JobView implements Serializable {
 	public void startDataTable() {
 
 		final String url = "http://localhost:8080/jobs/all";
-		
-		jobs = Utility.getResponse(url).getBody();
 
-		/*ObjectMapper mapper = new ObjectMapper();
-		
-		ResponseEntity<List<JobModel>> jobs = Utility.getResponse(url);
+		ObjectMapper mapper = new ObjectMapper();
 
-		/*jobs = mapper.convertValue(responseForApplications.getBody(),
-				new TypeReference<List<JobModel>>() {
-				});
-		
+		ResponseEntity<List<JobModel>> responseForApplication = Utility.getResponse(url);
+
+		jobs = mapper.convertValue(responseForApplication.getBody(), new TypeReference<List<JobModel>>() {
+
+		});
+
 		cbLevels = new HashMap<String, String>();
 
 		for (JobModel j : jobs) {
 			cbLevels.put(j.getLevel(), j.getLevel());
 		}
-		
-		for(JobModel j : jobs) {
-			System.out.println(j.getLevel());
-		}*/
-		
+
 	}
 
 	@PostConstruct
@@ -67,11 +60,11 @@ public class JobView implements Serializable {
 
 	}
 
-	public void myFunc() {
+	public void filterJobs() {
 
-		//final String levelUrl = "http://localhost:8080/jobs/" + getSelectedLevel();
+		// final String levelUrl = "http://localhost:8080/jobs/" + getSelectedLevel();
 
-		//jobs = Utility.getResponse(uri);
+		// jobs = Utility.getResponse(uri);
 
 	}
 
